@@ -13,6 +13,8 @@ $ kubectl logs myapp --container hello-serve
 $ kubectl logs deploy/hello-server
 $ kubectl get pod --selector app=myapp
 $ kubectl logs --selector app=myapp
+$ kubectl config get-contexts                          # コンテキストのリストを表示
+$ kubectl config current-context                       # 現在のコンテキストを表示
 ```
 
 ### デバック用サイドカーコンテナ立ち上げ
@@ -48,3 +50,5 @@ $ kubectl portforward <Pod名> <転送先ポート番号>:<転送元ポート番
 $ kubectl portforward myapp 5555:8080
 $ curl localhost:5555
 ```
+
+https://kubernetes.io/ja/docs/reference/kubectl/cheatsheet/
