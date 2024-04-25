@@ -41,3 +41,10 @@ $ kubectl exec --stdin --tty curlpod -- /bin/sh
 # ログイン後疎通確認
 $ curl <myapp PodのIP>:8080
 ```
+
+### port-forwardでアプリケーションにアクセス
+```bash
+$ kubectl portforward <Pod名> <転送先ポート番号>:<転送元ポート番号>
+$ kubectl portforward myapp 5555:8080
+$ curl localhost:5555
+```
