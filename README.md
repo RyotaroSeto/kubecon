@@ -59,3 +59,4 @@ https://kubernetes.io/ja/docs/reference/kubectl/cheatsheet/
 - [Krew](https://github.com/kubernetes-sigs/krew/)
 ### kubectx
 - [kubectx&install](https://github.com/ahmetb/kubectx)
+- kubectxでcontext情報選択
