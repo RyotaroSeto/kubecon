@@ -52,3 +52,10 @@ $ curl localhost:5555
 ```
 
 https://kubernetes.io/ja/docs/reference/kubectl/cheatsheet/
+
+## kubectlプラグイン
+### Krew
+- [install](https://krew.sigs.k8s.io/docs/user-guide/setup/install/)
+- [Krew](https://github.com/kubernetes-sigs/krew/)
+### kubectx
+- [kubectx&install](https://github.com/ahmetb/kubectx)
