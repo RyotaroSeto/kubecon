@@ -66,4 +66,12 @@ https://kubernetes.io/ja/docs/reference/kubectl/cheatsheet/
 - 外部公開していない場合、以下コマンドで特定のnamespaceにcurl用podを作成して動作確認
 　　- `kubectl run curl --image curlimages/curl --rm --stdin --tty restart=Never --command -- curl <helloserverserviceのClusterIP>:8080`
 - ポートフォワーディング
-  
+### デバッグ順番
+- Pod内からアプリケーションの接続確認
+  - デバッグコンテナ起動しcurl
+  - kubectl debug --stdin --tty <Pod名> --image curlimages/curl -- sh
+  - curl localhost:8080
+- クラスタ内かつ別Podから接続確認
+  - kubectl run curl --image curlimages/curl --rm --stdin --tty --restart=Never --command -- curl <PodのIP>:8080
+- クラスタ内かつ別PodからService経由で接続確認 
+  - k run curl --image curlimages/curl --rm --stdin --tty --restart=Never --command -- curl <ServiceのCluster-IP>:8080
