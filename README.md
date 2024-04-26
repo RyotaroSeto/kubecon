@@ -60,3 +60,4 @@ https://kubernetes.io/ja/docs/reference/kubectl/cheatsheet/
 ### kubectx
 - [kubectx&install](https://github.com/ahmetb/kubectx)
 - kubectxでcontext情報選択
+- kubensでnamespace選択
