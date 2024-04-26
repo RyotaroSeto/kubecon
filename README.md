@@ -15,7 +15,6 @@ $ kubectl get pod --selector app=myapp
 $ kubectl logs --selector app=myapp
 $ kubectl config get-contexts                          # コンテキストのリストを表示
 $ kubectl config current-context                       # 現在のコンテキストを表示
-$ kubectl get nodes -o jsonpath='{.items[*].status.addresses[?(@.type=="InternalIP")].address}' # NodeのIP取得(ローカルの場合はPCのIP)
 ```
 
 ### デバック用サイドカーコンテナ立ち上げ
