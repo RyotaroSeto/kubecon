@@ -15,6 +15,7 @@ $ kubectl get pod --selector app=myapp
 $ kubectl logs --selector app=myapp
 $ kubectl config get-contexts                          # コンテキストのリストを表示
 $ kubectl config current-context                       # 現在のコンテキストを表示
+$ kubectl get nodes -o jsonpath='{.items[*].status.addresses[?(@.type=="InternalIP")].address}' # NodeのIP取得(ローカルの場合はPCのIP)
 ```
 
 ### デバック用サイドカーコンテナ立ち上げ
@@ -61,3 +62,9 @@ https://kubernetes.io/ja/docs/reference/kubectl/cheatsheet/
 - [kubectx&install](https://github.com/ahmetb/kubectx)
 - kubectxでcontext情報選択
 - kubensでnamespace選択
+
+## デバッグ
+- 外部公開していない場合、以下コマンドで特定のnamespaceにcurl用podを作成して動作確認
+　　- `kubectl run curl --image curlimages/curl --rm --stdin --tty restart=Never --command -- curl <helloserverserviceのClusterIP>:8080`
+- ポートフォワーディング
+  
