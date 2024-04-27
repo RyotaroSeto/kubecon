@@ -75,3 +75,6 @@ https://kubernetes.io/ja/docs/reference/kubectl/cheatsheet/
   - kubectl run curl --image curlimages/curl --rm --stdin --tty --restart=Never --command -- curl <PodのIP>:8080
 - クラスタ内かつ別PodからService経由で接続確認 
   - k run curl --image curlimages/curl --rm --stdin --tty --restart=Never --command -- curl <ServiceのCluster-IP>:8080
+
+### OOMKilled確認
+- kubectl get pods <Pod名> --output=jsonpath='{.status.containerStatuses[0]}'
