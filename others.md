@@ -43,3 +43,8 @@ PriorityClassを設定することで、Podの起動優先度順位を定義で�
 ### 水平スケール(HPA)と垂直スケール(VPA)
 
 vpaは自動でresourceのlimitsとrequestsの値を変更してくれる
+
+### PodDisruptionBudgetによる安全なメンテナンス
+
+- k8sを運用する中で、Podが稼働しているノードをメンテナンスしたい場合。その際はkubectl drainを用いて、ノード上のPodを退避させる必要がある。例えばノードが3台あって、レプリカ数2のアプリの場合で、1つのノードに pod2つ配置されている状況でその1つのノードをdrainしたらアプリが停止してしまう。
+- 上記の状況を避けるために、`PodDisruptionBudget` を定義することで最低限必要なPod数を1と設定した場合、上記の状況でpod1つはdrainで退避されなくなる。
